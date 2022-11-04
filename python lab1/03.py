@@ -19,9 +19,9 @@ Primer: spoji([1, 7, 2, 4], [2, 5, 2]) = [(1, 2, 3), (5, 7, 12), (2, 2, 4), (4, 
 """
 
 def uredi(lista:list[int],n:int,value:int)->list[int]:
-   return [lista[i] + (value if i < n else - value) for i in range(0, len(lista))]
+   return list(map(lambda x: x+value if lista.index(x) < n else x-value,lista))
 
-#print(uredi([1, 2, 3, 4, 5], 3, 1) )
+print(uredi([1, 2, 3, 4, 5], 3, 1) )
 
 def spoji(a:list[int],b:list[int])->list[tuple[int,int,int]]:
     return list(map(lambda x: (x[0] if x[0] < x[1] else x[1] , x[1] if x[1] > x[0] else x[0], x[0]+x[1]),zip_longest(a,b,fillvalue=0)))
