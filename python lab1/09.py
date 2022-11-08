@@ -23,7 +23,10 @@ def prosek(a:list[list[int]])->list[float]:
 print(prosek([[1, 4, 6, 2], [4, 6, 2, 7], [3, 5], [5, 6, 2, 7]]))
 
 def zamena(a:list[int],b:int)->list[int]:
-    return list(map(lambda x: x if x>=b else reduce(lambda r,t: r+t,a[operator.index(x):]),a))
+    return list(map(lambda x: x[1] if x[1]>=b else reduce(lambda r,t: r+t,a[x[0]+1:]),enumerate(a)))
+
+# def zamena2(a:list[int],b:int)->list[int]: OVDE JE PROBLEM STO INDEX(X) MOZE DA VRATI SAMO PRVO POJAVLJIVANJE BROJA U LISTI
+#     return list(map(lambda x: x if x>=b else reduce(lambda r,t: r+t,a[operator.index(x):]),a))
 
 print(zamena([1, 7, 5, 4, 9, 1, 2, 7], 5))
 

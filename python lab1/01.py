@@ -32,5 +32,5 @@ from itertools import zip_longest
 niz1= [1,7,2,4]
 niz2=[2,5,2]
 def poredak(lista1:list[int],lista2:list[int]) ->list[tuple[int,int,str]]:
-    return list(map(lambda x: (x[0], x[1], ('Jeste') if x[0] << 1 == x[1] else ('Nije')), list(zip_longest(lista1, lista2, fillvalue=0))))
+    return list(map(lambda x: (x[0] , x[1], ('Jeste') if x[1] >= 2 * x[0] else ('Nije')), list(zip_longest(lista1, lista2, fillvalue=0))))
 print(poredak(niz1,niz2))
