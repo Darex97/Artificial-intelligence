@@ -10,7 +10,7 @@ je korišćenje petlji.
 Primer: skupi([[1, 3, 5],[2, 4, 6],[1, 2]]) = [[3, 7, 11],[3, 6, 6]]
 """
 
-from itertools import pairwise, starmap
+from itertools import pairwise, starmap, zip_longest
 from operator import index
 
 
@@ -23,3 +23,8 @@ def skupi(a:list[list[int]])->list[list[int]]:
     return list(map(lambda x: list(map(lambda z,y: z + y ,x[0],x[1])),pairwise(a)))
 
 print(skupi([[1, 3, 5],[2, 4, 6],[1, 2]]))
+
+def skupi2(a:list[list[int]])->list[list[int]]: #ovaj radi bas kako treba
+    return list(map(lambda x: list(map(lambda z: z[0] + z[1]  ,zip_longest(x[0],x[1],fillvalue=0))),pairwise(a)))
+
+print(skupi2([[1, 3, 5],[2, 4, 6],[1, 2]]))
